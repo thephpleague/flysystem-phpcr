@@ -1,0 +1,26 @@
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         cacheTokens="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="true"
+         strict="false"
+         bootstrap="phpunit.php"
+>
+
+    <testsuites>
+        <testsuite name="Flysystem PHPCR Tests">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+    <!-- configuration for code coverage report -->
+    <filter>
+        <whitelist>
+            <directory>src</directory>
+        </whitelist>
+    </filter>
+
+</phpunit>

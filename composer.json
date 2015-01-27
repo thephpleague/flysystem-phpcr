@@ -1,0 +1,24 @@
+{
+    "name": "league/flysystem-phpcr",
+    "description": "Flysystem adapter for the PHP content repository",
+    "require": {
+        "league/flysystem": "~1.0",
+        "phpcr/phpcr-implementation": "~2.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "jackalope/jackalope-doctrine-dbal": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "League\\Flysystem\\Phpcr\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Buchmann",
+            "email": "david.buchmann@liip.ch"
+        }
+    ]
+}
