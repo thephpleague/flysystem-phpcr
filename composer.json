@@ -1,6 +1,15 @@
 {
     "name": "league/flysystem-phpcr",
     "description": "Flysystem adapter for the PHP content repository",
+    "keywords": [
+        "filesystem", "phpcr", "flysystem"
+    ],
+    "authors": [
+        {
+            "name": "David Buchmann",
+            "email": "david.buchmann@liip.ch"
+        }
+    ],
     "require": {
         "league/flysystem": "~1.0",
         "phpcr/phpcr-implementation": "~2.1.0"
@@ -15,10 +24,12 @@
         }
     },
     "license": "MIT",
-    "authors": [
-        {
-            "name": "David Buchmann",
-            "email": "david.buchmann@liip.ch"
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1-dev"
         }
-    ]
+    }
 }
