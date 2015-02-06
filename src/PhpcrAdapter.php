@@ -3,7 +3,7 @@
 namespace League\Flysystem\Phpcr;
 
 use League\Flysystem\Adapter\AbstractAdapter;
-use League\Flysystem\AdapterInterface;
+use League\Flysystem\Adapter\Polyfill\NotSupportingVisibilityTrait;
 use League\Flysystem\Config;
 use League\Flysystem\Util;
 use PHPCR\NodeInterface;
@@ -20,6 +20,8 @@ use PHPCR\Util\PathHelper;
  */
 class PhpcrAdapter extends AbstractAdapter
 {
+    use NotSupportingVisibilityTrait;
+
     /**
      * @var SessionInterface
      */
@@ -400,26 +402,6 @@ class PhpcrAdapter extends AbstractAdapter
         }
 
         return $result;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getVisibility($path)
-    {
-        return array(
-            'visibility' => AdapterInterface::VISIBILITY_PUBLIC,
-        );
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setVisibility($path, $visibility)
-    {
-        return array(
-            'visibility' => AdapterInterface::VISIBILITY_PUBLIC,
-        );
     }
 
     /**

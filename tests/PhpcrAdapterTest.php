@@ -279,27 +279,22 @@ class PhpcrAdapterTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->adapter->deleteDir('dir/path.txt'));
     }
 
+    /**
+     * @expectedException \LogicException
+     */
     public function testVisibilityPublic()
     {
         $this->adapter->write('path.txt', 'contents', new Config());
         $this->adapter->setVisibility('path.txt', 'public');
-        $output = $this->adapter->getVisibility('path.txt');
-        $this->assertInternalType('array', $output);
-        $this->assertArrayHasKey('visibility', $output);
-        $this->assertEquals('public', $output['visibility']);
     }
 
     /**
-     * No visibility feature, always public
+     * @expectedException \LogicException
      */
     public function testVisibilityPrivate()
     {
         $this->adapter->write('path.txt', 'contents', new Config());
         $this->adapter->setVisibility('path.txt', 'private');
-        $output = $this->adapter->getVisibility('path.txt');
-        $this->assertInternalType('array', $output);
-        $this->assertArrayHasKey('visibility', $output);
-        $this->assertEquals('public', $output['visibility']);
     }
 
     public function testApplyPathPrefix()
