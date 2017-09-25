@@ -114,6 +114,10 @@ class PhpcrAdapter extends AbstractAdapter
             throw new \LogicException($path.' is not a folder but '.$node->getPrimaryNodeType()->getName());
         }
 
+        if ($create) {
+            $this->session->save();
+        }
+
         return $node;
     }
 
