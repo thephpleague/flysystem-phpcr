@@ -188,7 +188,7 @@ class PhpcrAdapter extends AbstractAdapter
     {
         $file = $this->getFileNode($path, true);
         $content = $file->getNode('jcr:content');
-        $content->setProperty('jcr:data', $contents);
+        $content->setProperty('jcr:data', $contents, PropertyType::BINARY);
 
         $result = $this->writeMeta($file, $path, $contents, $config);
         $result['size'] = $content->getProperty('jcr:data')->getLength();
