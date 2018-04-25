@@ -308,4 +308,15 @@ class PhpcrAdapterTest extends \PHPUnit_Framework_TestCase
         $this->adapter->setPathPrefix($this->root . '/');
         $this->assertEquals($this->root, $this->adapter->applyPathPrefix('/'));
     }
+
+    public function testWriteWithSpecificTimestampInConfig()
+    {
+        $timestamp = strtotime('today midnight');
+        $this->adapter->write('dummy.txt', '1234', new Config(['timestamp' => $timestamp]));
+        $result = $this->adapter->getTimestamp('dummy.txt');
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('timestamp', $result);
+        $this->assertInternalType('int', $result['timestamp']);
+        $this->assertEquals($timestamp, $result['timestamp']);
+    }
 }
