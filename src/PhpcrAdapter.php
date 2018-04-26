@@ -335,7 +335,7 @@ class PhpcrAdapter extends AbstractAdapter
             $files[] = $node;
         }
         while ($file = array_shift($files)) {
-            $result[] = $this->getFileInfo($file, $this->removePathPrefix($file->getPath()));
+            $result[] = $this->getFileInfo($file);
             if ($recursive && $file->isNodeType('nt:folder')) {
                 foreach ($file->getNodes() as $node) {
                     $files[] = $node;
