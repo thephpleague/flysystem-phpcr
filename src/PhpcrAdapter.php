@@ -172,11 +172,18 @@ class PhpcrAdapter extends AbstractAdapter
             }
         }
         $content->setProperty('jcr:mimeType', $mimetype);
-        if ($encoding = $config->get('encoding')) {
-            $content->setProperty('jcr:encoding', $encoding);
-        }
+
         $type = 'file';
         $result = compact('mimetype', 'type', 'path');
+
+        if ($encoding = $config->get('encoding')) {
+            $result['encoding'] = $encoding;
+            $content->setProperty('jcr:encoding', $encoding);
+        }
+        if($timestamp = $config->get('timestamp')) {
+            $result['timestamp'] = $timestamp;
+            $content->setProperty('jcr:lastModified', $timestamp);
+        }
 
         return $result;
     }
